@@ -14,16 +14,14 @@ cmake_minimum_required(VERSION 3.4.1)
 aux_source_directory(src/main/cpp/source SRC_LIST)
 
 add_library( # Sets the name of the library.
-             libmp3lame
+             audioencoder
 
              # Sets the library as a shared library.
              SHARED
 
              # Provides a relative path to your source file(s).
              # 将目录下所有文件添加到编译库中
-             ${SRC_LIST}
-             src/main/cpp/libmp3lame.cpp
-             )
+             src/main/cpp/Mp3Encoder.cpp  ${SRC_LIST} )
 
 
 # Searches for a specified prebuilt library and stores the path as a
@@ -44,7 +42,7 @@ find_library( # Sets the name of the path variable.
 # build script, prebuilt third-party libraries, or system libraries.
 
 target_link_libraries( # Specifies the target library.
-                       libmp3lame
+                       audioencoder
 
                        # Links the target library to the log library
                        # included in the NDK.

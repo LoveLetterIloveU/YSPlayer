@@ -1,4 +1,4 @@
-package com.longger.yinshipin;
+package com.longger.ysplayer;
 
 import org.junit.Test;
 
