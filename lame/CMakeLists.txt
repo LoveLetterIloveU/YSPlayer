@@ -10,8 +10,12 @@ cmake_minimum_required(VERSION 3.4.1)
 # You can define multiple libraries, and CMake builds them for you.
 # Gradle automatically packages shared libraries with your APK.
 
+set(SRC_DIR src/main/cpp)
+
 #设定源文件目录
-aux_source_directory(src/main/cpp/source SRC_LIST)
+aux_source_directory(src/main/cpp SRC_CODE)
+aux_source_directory(src/main/cpp/source SRC_SOURCE)
+
 
 add_library( # Sets the name of the library.
              audioencoder
@@ -19,9 +23,9 @@ add_library( # Sets the name of the library.
              # Sets the library as a shared library.
              SHARED
 
-             # Provides a relative path to your source file(s).
-             # 将目录下所有文件添加到编译库中
-             src/main/cpp/Mp3Encoder.cpp  ${SRC_LIST} )
+             # 将所有分级文件夹下文件都添加到编译库中
+             ${SRC_SOURCE}
+             ${SRC_CODE})
 
 
 # Searches for a specified prebuilt library and stores the path as a
